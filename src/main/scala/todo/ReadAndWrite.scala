@@ -1,6 +1,7 @@
 package todo
 import java.util.Scanner
-import java.io.FileWriter
+import java.io.{File, FileReader, FileWriter,RandomAccessFile}
+
 import scala.io.Source
 import scala.io.StdIn
 object ReadAndWrite
@@ -21,9 +22,9 @@ object ReadAndWrite
         input match
         {
           case 1 =>
-            WritingData()
+            writingData()
           case 2 =>
-            ReadingData()
+            readingData()
           case _ =>
             println("please choose 1 or 2...")
             begin()
@@ -35,33 +36,35 @@ object ReadAndWrite
           case x: Exception =>
             println("please give 1 or 2...")
             begin()
-
         }
     }
-    def WritingData()
+    def writingData()
     {
       print("Write your Proverb here...")
-      val in=Source.fromInputStream(System.in)
-      //    val lines=in.getLines().collect()
 
       var prb=StdIn.readLine()
 
-      val wrt = new FileWriter(location, true)
-      wrt.append(prb)
-      println("Successfully written on file.")
-      wrt.flush()
-      wrt.close()
+      val wt = new FileWriter(location, true)
+      val sz=new File(location)
 
+//      getting size of file and printing
+      val size=sz.length()
+      println("size of file before writing "+size+" bytes")
+
+      wt.append(prb)
+      println("Successfully written on file.")
+      wt.flush()
+      wt.close()
     }
 
-    def ReadingData()
+    def readingData()
     {
       println("Fetching from File...")
       val rd = Source.fromFile(location)
 
       for (line <- rd.getLines())
-        println(line)
-      rd.close()
+            println(line)
+            rd.close()
     }
     def main(args: Array[String])
     {
