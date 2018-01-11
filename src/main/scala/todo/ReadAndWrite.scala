@@ -29,7 +29,6 @@ object ReadAndWrite
             println("please choose 1 or 2...")
             begin()
         }
-
       }
       catch
         {
