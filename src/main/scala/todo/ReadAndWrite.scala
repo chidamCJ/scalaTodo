@@ -12,7 +12,7 @@ object ReadAndWrite
     def begin()
     {
       try
-      { 
+      {
         println("Welcome...")
         println("Press 1 for Write a Proverb")
         println("Press 2 for retrieve previous all proverbs")
