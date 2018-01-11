@@ -1,7 +1,6 @@
 package todo
 import java.util.Scanner
 import java.io.{File, FileReader, FileWriter,RandomAccessFile}
-
 import scala.io.Source
 import scala.io.StdIn
 object ReadAndWrite
