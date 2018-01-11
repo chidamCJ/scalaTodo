@@ -17,7 +17,6 @@ object ReadAndWrite
         println("Press 2 for retrieve previous all proverbs")
 
         var input = sc.nextInt()
-
         input match
         {
           case 1 =>
