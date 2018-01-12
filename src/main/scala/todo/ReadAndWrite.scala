@@ -36,7 +36,7 @@ object ReadAndWrite
         }
     }
     def writingData()
-    {
+    {   
       print("Write your Proverb here...")
 
       var prb=StdIn.readLine()
