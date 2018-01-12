@@ -15,7 +15,6 @@ object ReadAndWrite
         println("Welcome...")
         println("Press 1 for Write a Proverb")
         println("Press 2 for retrieve previous all proverbs")
-
         var input = sc.nextInt()
         input match
         {
@@ -36,7 +35,7 @@ object ReadAndWrite
         }
     }
     def writingData()
-    {   
+    {
       print("Write your Proverb here...")
 
       var prb=StdIn.readLine()
