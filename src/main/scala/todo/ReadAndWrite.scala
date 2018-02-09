@@ -6,8 +6,7 @@ import scala.io.StdIn
 object ReadAndWrite
 {
     val sc = new Scanner(System.in)
-    val location = "/home/chims/Desktop/scala.txt"
-
+    val location = "ToDo.json"
     def begin()
     {
       try
@@ -19,7 +18,7 @@ object ReadAndWrite
         input match
         {
           case 1 =>
-            writingData()
+//            writingData()
           case 2 =>
             readingData()
           case _ =>
@@ -34,23 +33,26 @@ object ReadAndWrite
             begin()
         }
     }
-    def writingData()
+    def writingData(pos:String,data:String)
     {
-      print("Write your Proverb here...")
+//      print("Write your Proverb here...")
+//      var prb=StdIn.readLine()
+//      val wt = new FileWriter(location, true)
+//      val sz=new File(location)
+//      wt.append(data)
+//      wt.flush()
+//      wt.close()
 
-      var prb=StdIn.readLine()
-
-      val wt = new FileWriter(location, true)
-      val sz=new File(location)
-
+      val cv:Int=Integer.parseInt(pos)
 //      getting size of file and printing
-      val size=sz.length()
-      println("size of file before writing "+size+" bytes")
 
-      wt.append(prb)
+      val ra=new RandomAccessFile(location,"rw")
+      val size=ra.length()
+      println("size of file before writing "+size+" bytes")
+      ra.seek(cv)
+      ra.writeBytes(data)
       println("Successfully written on file.")
-      wt.flush()
-      wt.close()
+
     }
 
     def readingData()
@@ -64,7 +66,14 @@ object ReadAndWrite
     }
     def main(args: Array[String])
     {
-      begin()
+        val a=args(0)
+      val position=args(1)
+      val todo=args(2)
+
+      if(a.equalsIgnoreCase("add"))
+        writingData(position,todo)
+
+//      begin()
     }
 
   }
